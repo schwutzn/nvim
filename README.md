@@ -171,21 +171,23 @@ This requires:
 {'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 ```
 </details>
-<details><summary>Windows with gcc/make using chocolatey</summary>
-Alternatively, one can install gcc and make which don't require changing the config,
-the easiest way is to use choco:
+<details><summary>Windows with gcc/make using winget/scoop, because i like scoop more than coco.</summary>
 
-1. install [chocolatey](https://chocolatey.org/install)
-either follow the instructions on the page or use winget,
-run in cmd as **admin**:
-```
-winget install --accept-source-agreements chocolatey.chocolatey
-```
+1. install [scoop](https://github.com/ScoopInstaller/Install#readme)
 
-2. install all requirements using choco, exit the previous cmd and
-open a new one so that choco path is set, and run in cmd as **admin**:
+2. install all requirements using scoop
 ```
-choco install -y neovim git ripgrep wget fd unzip gzip mingw make
+-- winget
+winget install JernejSimoncic.Wget
+winget install BurntSushi.ripgrep.GNU
+winget install GnuWin32.Gzip
+winget install Neovim.Neovim
+
+-- scoop
+scoop install main/unzip
+scoop install main/mingw
+scoop install main/make
+scoop install main/gcc
 ```
 </details>
 <details><summary>WSL (Windows Subsystem for Linux)</summary>
