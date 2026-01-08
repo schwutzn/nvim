@@ -11,6 +11,8 @@ vim.g.have_nerd_font = true
 vim.o.number = true
 vim.o.relativenumber = true
 
+vim.wo.wrap = false
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
 
@@ -804,6 +806,22 @@ require('lazy').setup({
     end,
   },
 
+  {
+    'roobert/tailwindcss-colorizer-cmp.nvim',
+    config = function()
+      require('tailwindcss-colorizer-cmp').setup {
+        color_square_width = 2,
+      }
+    end,
+  },
+
+  {
+    'catgoose/nvim-colorizer.lua',
+    event = 'BufReadPre',
+    opts = {
+      tailwindcss = true,
+    },
+  },
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.
