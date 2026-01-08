@@ -613,6 +613,7 @@ require('lazy').setup({
         lua = { 'stylua' },
         javascript = { 'prettier' },
         typescript = { 'prettier' },
+        markdown = { 'prettier' },
       },
     },
   },
