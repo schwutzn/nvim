@@ -559,7 +559,6 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         ts_ls = {},
-        emmet_language_server = {},
         eslint = {},
         tailwindcss = {},
         lua_ls = {
