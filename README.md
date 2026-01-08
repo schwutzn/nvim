@@ -158,36 +158,26 @@ After installing all the dependencies continue with the [Install Kickstart](#Ins
 
 #### Windows Installation
 
-<details><summary>Windows with Microsoft C++ Build Tools and CMake</summary>
-Installation may require installing build tools and updating the run command for `telescope-fzf-native`
-
-See `telescope-fzf-native` documentation for [more details](https://github.com/nvim-telescope/telescope-fzf-native.nvim#installation)
-
-This requires:
-
-- Install CMake and the Microsoft C++ Build Tools on Windows
-
-```lua
-{'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-```
-</details>
-<details><summary>Windows with gcc/make using winget/scoop, because i like scoop more than coco.</summary>
+<details><summary>Windows with gcc/make/VSBuildTools using winget/scoop.</summary>
 
 1. install [scoop](https://github.com/ScoopInstaller/Install#readme)
 
-2. install all requirements using scoop
+2. install requirements using scoop
 ```
--- winget
-winget install JernejSimoncic.Wget
-winget install BurntSushi.ripgrep.GNU
-winget install GnuWin32.Gzip
-winget install Neovim.Neovim
+scoop install main/unzip main/mingw main/make main/gcc
+```
 
--- scoop
-scoop install main/unzip
-scoop install main/mingw
-scoop install main/make
-scoop install main/gcc
+3. install requirements using winget
+```
+winget install JernejSimoncic.Wget && winget install BurntSushi.ripgrep.GNU && winget install GnuWin32.Gzip
+```
+
+4. install [VSBuildTools](https://aka.ms/vs/stable/vs_BuildTools.exe)
+select the "Desktop development with C++" node, make sure the win sdk is also selected. this installs the cl.exe needed to build parsers.
+
+5. finally install neovim
+```
+winget install Neovim.Neovim
 ```
 </details>
 <details><summary>WSL (Windows Subsystem for Linux)</summary>
