@@ -563,6 +563,8 @@ require('lazy').setup({
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         ts_ls = {},
+        emmet_language_server = {},
+        eslint = {},
 
         lua_ls = {
           -- cmd = { ... },
@@ -808,6 +810,9 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     lazy = false,
     build = ':TSUpdate',
+    config = function()
+      require('nvim-treesitter').install { 'html', 'css', 'tsx', 'json', 'go', 'powershell' }
+    end,
   },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
