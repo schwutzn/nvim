@@ -4,8 +4,8 @@ return {
     lazy = false,
     build = ':TSUpdate',
     config = function()
-      if vim.fn.executable 'zig' == 1 then
-        vim.env.CC = 'zig cc' -- used by `tree-sitter build`
+      if vim.fn.executable 'gcc' == 1 then
+        vim.env.CC = 'gcc' -- used by `tree-sitter build`
       end
       require('nvim-treesitter').install { 'html', 'css', 'tsx', 'json', 'go', 'powershell' }
     end,
