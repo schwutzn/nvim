@@ -544,6 +544,12 @@ require('lazy').setup({
 
   require 'plugins.nvim-colorizer',
 }, {
+  performance = {
+    rtp = {
+      -- keep the treesitter parser install dir when lazy resets the runtimepath
+      paths = { vim.fn.stdpath 'data' .. '/site' },
+    },
+  },
   ui = {
     icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',

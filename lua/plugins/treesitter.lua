@@ -8,6 +8,14 @@ return {
         vim.env.CC = 'gcc' -- used by `tree-sitter build`
       end
       require('nvim-treesitter').install { 'html', 'css', 'tsx', 'json', 'go', 'powershell' }
+
+      -- the main branch no longer enables highlighting itself; start it per buffer
+      vim.api.nvim_create_autocmd('FileType', {
+        group = vim.api.nvim_create_augroup('treesitter-highlight', { clear = true }),
+        callback = function(event)
+          pcall(vim.treesitter.start, event.buf)
+        end,
+      })
     end,
   },
 }
